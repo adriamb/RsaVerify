@@ -25,30 +25,26 @@ pragma solidity ^0.8.0;
 
 library RsaVerifyOptimized {
     uint256 constant sha256ExplicitNullParamByteLen = 17;
-    bytes32 constant sha256ExplicitNullParam =
-        0x3031300d06096086480165030402010500000000000000000000000000000000;
-    bytes32 constant sha256ExplicitNullParamMask =
-        0xffffffffffffffffffffffffffffffffff000000000000000000000000000000;
+    bytes32 constant sha256ExplicitNullParam = 0x3031300d06096086480165030402010500000000000000000000000000000000;
+    bytes32 constant sha256ExplicitNullParamMask = 0xffffffffffffffffffffffffffffffffff000000000000000000000000000000;
 
     uint256 constant sha256ImplicitNullParamByteLen = 15;
-    bytes32 constant sha256ImplicitNullParam =
-        0x302f300b06096086480165030402010000000000000000000000000000000000;
-    bytes32 constant sha256ImplicitNullParamMask =
-        0xffffffffffffffffffffffffffffff0000000000000000000000000000000000;
+    bytes32 constant sha256ImplicitNullParam = 0x302f300b06096086480165030402010000000000000000000000000000000000;
+    bytes32 constant sha256ImplicitNullParamMask = 0xffffffffffffffffffffffffffffff0000000000000000000000000000000000;
 
-    /** @dev Verifies a PKCSv1.5 SHA256 signature
+    /**
+     * @dev Verifies a PKCSv1.5 SHA256 signature
      * @param _sha256 is the sha256 of the data
      * @param _s is the signature
      * @param _e is the exponent
      * @param _m is the modulus
      * @return true if success, false otherwise
      */
-    function pkcs1Sha256(
-        bytes32 _sha256,
-        bytes memory _s,
-        bytes memory _e,
-        bytes memory _m
-    ) public view returns (bool) {
+    function pkcs1Sha256(bytes32 _sha256, bytes memory _s, bytes memory _e, bytes memory _m)
+        public
+        view
+        returns (bool)
+    {
         // decipher
         uint256 decipherlen = _m.length;
         if (decipherlen < 64) {
@@ -57,14 +53,7 @@ library RsaVerifyOptimized {
         if (decipherlen != _s.length) {
             return false;
         }
-        bytes memory input = bytes.concat(
-            bytes32(decipherlen),
-            bytes32(_e.length),
-            bytes32(decipherlen),
-            _s,
-            _e,
-            _m
-        );
+        bytes memory input = bytes.concat(bytes32(decipherlen), bytes32(_e.length), bytes32(decipherlen), _s, _e, _m);
         uint256 inputlen = input.length;
 
         bytes memory decipher = new bytes(decipherlen);
@@ -85,7 +74,7 @@ library RsaVerifyOptimized {
         //    digest OCTET STRING
         // }
 
-        uint digestAlgoWithParamLen;
+        uint256 digestAlgoWithParamLen;
         uint256 paddingLen;
         assembly ("memory-safe") {
             //
@@ -101,27 +90,11 @@ library RsaVerifyOptimized {
             // }
 
             // Note: `decipherlen` is at least 64, so we can safely access
-            if eq(
-                byte(
-                    0,
-                    mload(
-                        sub(add(decipher, decipherlen),18 /* decipher+0x20+(decipherlen-50) */)
-                    )
-                ),
-                0x31
-            ) {
+            if eq(byte(0, mload(sub(add(decipher, decipherlen), 18 /* decipher+0x20+(decipherlen-50) */ ))), 0x31) {
                 digestAlgoWithParamLen := sha256ExplicitNullParamByteLen
             }
             if iszero(digestAlgoWithParamLen) {
-                if eq(
-                    byte(
-                        0,
-                        mload(
-                            sub(add(decipher, decipherlen), 16 /* decipher+0x20+(decipherlen-48) */)
-                        )
-                    ),
-                    0x2f
-                ) {
+                if eq(byte(0, mload(sub(add(decipher, decipherlen), 16 /* decipher+0x20+(decipherlen-48) */ ))), 0x2f) {
                     digestAlgoWithParamLen := sha256ImplicitNullParamByteLen
                 }
             }
@@ -129,7 +102,6 @@ library RsaVerifyOptimized {
                 mstore(0x00, false)
                 return(0x00, 0x20)
             }
-
 
             // paddingLen = decipherlen - 5 - digestAlgoWithParamLen - 32;
             // Note: `decipherlen` is at least 64, so we can safely access
@@ -147,16 +119,14 @@ library RsaVerifyOptimized {
                     mload(add(decipher, 0x20)),
                     0xffff000000000000000000000000000000000000000000000000000000000000 /* 32bytes */
                 ),
-                0x0001000000000000000000000000000000000000000000000000000000000000 /* 32bytes */
-                /*
+                0x0001000000000000000000000000000000000000000000000000000000000000 /* 32bytes */ /*
                     0: 0x00
                     1: 0x01
-                */
+                                                                                                   */
             ) {
                 mstore(0x00, false)
                 return(0x00, 0x20)
             }
-            
 
             //
             // Equivalent code:
@@ -170,12 +140,13 @@ library RsaVerifyOptimized {
             //     }
             // }
             //
-            let _maxIndex := add(add(decipher, 34 /* 0x20+2 */), paddingLen)
-            for {
-                let i := add(decipher, 34) /* 0x20+2 */
-            } lt(i, _maxIndex) {
-                i := add(i, 1)
-            } {
+            let _maxIndex :=
+                add(
+                    add(decipher, 34),
+                    /* 0x20+2 */
+                    paddingLen
+                )
+            for { let i := add(decipher, 34) } /* 0x20+2 */ lt(i, _maxIndex) { i := add(i, 1) } {
                 if lt(byte(0, mload(i)), 0xff) {
                     mstore(0x00, false)
                     return(0x00, 0x20)
@@ -209,9 +180,7 @@ library RsaVerifyOptimized {
                 //
 
                 // load decipher[3 + paddingLen + 0]
-                let _data := mload(
-                    add(add(decipher, 35 /* 0x20+3 */), paddingLen)
-                )
+                let _data := mload(add(add(decipher, 35 /* 0x20+3 */ ), paddingLen))
                 // ensure that only the first `sha256ImplicitNullParamByteLen` bytes have data
                 _data := and(_data, sha256ExplicitNullParamMask)
                 // check that the data is equal to `sha256ExplicitNullParam`
@@ -234,7 +203,7 @@ library RsaVerifyOptimized {
                 //
 
                 // load decipher[3 + paddingLen + 0]
-                let _data := mload(add(add(decipher, 35/* 0x20+3 */), paddingLen))
+                let _data := mload(add(add(decipher, 35 /* 0x20+3 */ ), paddingLen))
                 // ensure that only the first `sha256ImplicitNullParamByteLen` bytes have data
                 _data := and(_data, sha256ImplicitNullParamMask)
                 // check that the data is equal to `sha256ImplicitNullParam`
@@ -259,19 +228,13 @@ library RsaVerifyOptimized {
 
             if sub(
                 and(
-                    mload(
-                        add(
-                            add(add(decipher, 35 /* 0x20+3 */), paddingLen),
-                            digestAlgoWithParamLen
-                        )
-                    ),
+                    mload(add(add(add(decipher, 35 /* 0x20+3 */ ), paddingLen), digestAlgoWithParamLen)),
                     0xffff000000000000000000000000000000000000000000000000000000000000 /* 32bytes */
                 ),
-                0x0420000000000000000000000000000000000000000000000000000000000000 /* 32bytes */
-                /*
+                0x0420000000000000000000000000000000000000000000000000000000000000 /* 32bytes */ /*
                     0: 0x04
                     1: 0x20
-                */
+                                                                                                   */
             ) {
                 mstore(0x00, false)
                 return(0x00, 0x20)
@@ -287,12 +250,7 @@ library RsaVerifyOptimized {
             //    }
             //
             // load decipher[5 + paddingLen + digestAlgoWithParamLen + 0]
-            let _data := mload(
-                add(
-                    add(add(add(decipher, 0x20), 5), paddingLen),
-                    digestAlgoWithParamLen
-                )
-            )
+            let _data := mload(add(add(add(add(decipher, 0x20), 5), paddingLen), digestAlgoWithParamLen))
             // check that the data is equal to `_sha256`
             _data := xor(_data, _sha256)
             if gt(_data, 0) {
@@ -304,19 +262,19 @@ library RsaVerifyOptimized {
         return true;
     }
 
-    /** @dev Verifies a PKCSv1.5 SHA256 signature
+    /**
+     * @dev Verifies a PKCSv1.5 SHA256 signature
      * @param _data to verify
      * @param _s is the signature
      * @param _e is the exponent
      * @param _m is the modulus
      * @return 0 if success, >0 otherwise
      */
-    function pkcs1Sha256Raw(
-        bytes memory _data,
-        bytes memory _s,
-        bytes memory _e,
-        bytes memory _m
-    ) public view returns (bool) {
+    function pkcs1Sha256Raw(bytes memory _data, bytes memory _s, bytes memory _e, bytes memory _m)
+        public
+        view
+        returns (bool)
+    {
         return pkcs1Sha256(sha256(_data), _s, _e, _m);
     }
 }
