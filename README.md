@@ -20,6 +20,7 @@ First you'll need an RSA private key. You can generate one using the
     ..................................................++++++
     e is 65537 (0x10001)
 
+Note: this is just an example, 1024 bits is unsafe, always use >= 2048!
 
 Next lets sign a message:
 
