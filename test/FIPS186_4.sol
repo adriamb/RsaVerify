@@ -9,7 +9,7 @@ import "./Suite.sol";
 */
 
 contract FIPS186_4 is Suite {
-    function suite() public returns (VectorTest[] memory) {
+    function suite() public pure returns (VectorTest[] memory) {
         VectorTest[] memory vt = new VectorTest[](54);
         uint256 i = 0;
         vt[i++] = rs256_0();
@@ -69,7 +69,7 @@ contract FIPS186_4 is Suite {
         return vt;
     }
 
-    function rs256_0() public view returns (VectorTest memory) {
+    function rs256_0() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 1024
             e: hex"0000000000000000000000000000000000000000000000000000000000eef211",
@@ -80,7 +80,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_1() public view returns (VectorTest memory) {
+    function rs256_1() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 1024
             e: hex"0000000000000000000000000000000000000000000000000000000000eef211",
@@ -91,7 +91,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_2() public view returns (VectorTest memory) {
+    function rs256_2() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 1024
             e: hex"0000000000000000000000000000000000000000000000000000000000eef211",
@@ -102,7 +102,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_3() public view returns (VectorTest memory) {
+    function rs256_3() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 1024
             e: hex"0000000000000000000000000000000000000000000000000000000000990d05",
@@ -113,7 +113,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_4() public view returns (VectorTest memory) {
+    function rs256_4() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 1024
             e: hex"0000000000000000000000000000000000000000000000000000000000eef211",
@@ -124,7 +124,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_5() public view returns (VectorTest memory) {
+    function rs256_5() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 1024
             e: hex"0000000000000000000000000000000000000000000000000000000000eef211",
@@ -135,7 +135,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_6() public view returns (VectorTest memory) {
+    function rs256_6() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 1024
             e: hex"0000000000000000000000000000000000000000000000000000000000d90b53",
@@ -146,7 +146,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_7() public view returns (VectorTest memory) {
+    function rs256_7() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 1024
             e: hex"000000000000000000000000000000000000000000000000000000000009ffbd",
@@ -157,7 +157,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_8() public view returns (VectorTest memory) {
+    function rs256_8() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 1024
             e: hex"000000000000000000000000000000000000000000000000000000000009ffbd",
@@ -168,7 +168,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_9() public view returns (VectorTest memory) {
+    function rs256_9() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 1024
             e: hex"000000000000000000000000000000000000000000000000000000000009ffbd",
@@ -179,7 +179,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_10() public view returns (VectorTest memory) {
+    function rs256_10() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 1024
             e: hex"000000000000000000000000000000000000000000000000000000000009ffbd",
@@ -190,7 +190,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_11() public view returns (VectorTest memory) {
+    function rs256_11() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 1024
             e: hex"000000000000000000000000000000000000000000000000000000000009ffbd",
@@ -201,7 +201,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_12() public view returns (VectorTest memory) {
+    function rs256_12() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 1024
             e: hex"0000000000000000000000000000000000000000000000000000000000681201",
@@ -212,7 +212,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_13() public view returns (VectorTest memory) {
+    function rs256_13() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 1024
             e: hex"0000000000000000000000000000000000000000000000000000000000681201",
@@ -223,7 +223,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_14() public view returns (VectorTest memory) {
+    function rs256_14() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 1024
             e: hex"0000000000000000000000000000000000000000000000000000000000681201",
@@ -234,7 +234,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_15() public view returns (VectorTest memory) {
+    function rs256_15() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 1024
             e: hex"0000000000000000000000000000000000000000000000000000000000681201",
@@ -245,7 +245,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_16() public view returns (VectorTest memory) {
+    function rs256_16() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 1024
             e: hex"0000000000000000000000000000000000000000000000000000000000eefc9f",
@@ -256,7 +256,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_17() public view returns (VectorTest memory) {
+    function rs256_17() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 1024
             e: hex"0000000000000000000000000000000000000000000000000000000000681201",
@@ -267,7 +267,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_18() public view returns (VectorTest memory) {
+    function rs256_18() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 2048
             e: hex"000000000000000000000000000000000000000000000000000000000049d2a1",
@@ -278,7 +278,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_19() public view returns (VectorTest memory) {
+    function rs256_19() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 2048
             e: hex"000000000000000000000000000000000000000000000000000000000049d2a1",
@@ -289,7 +289,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_20() public view returns (VectorTest memory) {
+    function rs256_20() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 2048
             e: hex"000000000000000000000000000000000000000000000000000000000049d2a1",
@@ -300,7 +300,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_21() public view returns (VectorTest memory) {
+    function rs256_21() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 2048
             e: hex"000000000000000000000000000000000000000000000000000000000007485b",
@@ -311,7 +311,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_22() public view returns (VectorTest memory) {
+    function rs256_22() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 2048
             e: hex"000000000000000000000000000000000000000000000000000000000049d2a1",
@@ -322,7 +322,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_23() public view returns (VectorTest memory) {
+    function rs256_23() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 2048
             e: hex"000000000000000000000000000000000000000000000000000000000049d2a1",
@@ -333,7 +333,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_24() public view returns (VectorTest memory) {
+    function rs256_24() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 2048
             e: hex"000000000000000000000000000000000000000000000000000000000066a13d",
@@ -344,7 +344,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_25() public view returns (VectorTest memory) {
+    function rs256_25() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 2048
             e: hex"0000000000000000000000000000000000000000000000000000000000391c9d",
@@ -355,7 +355,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_26() public view returns (VectorTest memory) {
+    function rs256_26() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 2048
             e: hex"000000000000000000000000000000000000000000000000000000000066a13d",
@@ -366,7 +366,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_27() public view returns (VectorTest memory) {
+    function rs256_27() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 2048
             e: hex"000000000000000000000000000000000000000000000000000000000066a13d",
@@ -377,7 +377,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_28() public view returns (VectorTest memory) {
+    function rs256_28() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 2048
             e: hex"000000000000000000000000000000000000000000000000000000000066a13d",
@@ -388,7 +388,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_29() public view returns (VectorTest memory) {
+    function rs256_29() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 2048
             e: hex"000000000000000000000000000000000000000000000000000000000066a13d",
@@ -399,7 +399,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_30() public view returns (VectorTest memory) {
+    function rs256_30() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 2048
             e: hex"00000000000000000000000000000000000000000000000000000000003c7bf9",
@@ -410,7 +410,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_31() public view returns (VectorTest memory) {
+    function rs256_31() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 2048
             e: hex"00000000000000000000000000000000000000000000000000000000003c7bf9",
@@ -421,7 +421,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_32() public view returns (VectorTest memory) {
+    function rs256_32() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 2048
             e: hex"0000000000000000000000000000000000000000000000000000000000b53999",
@@ -432,7 +432,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_33() public view returns (VectorTest memory) {
+    function rs256_33() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 2048
             e: hex"00000000000000000000000000000000000000000000000000000000003c7bf9",
@@ -443,7 +443,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_34() public view returns (VectorTest memory) {
+    function rs256_34() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 2048
             e: hex"00000000000000000000000000000000000000000000000000000000003c7bf9",
@@ -454,7 +454,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_35() public view returns (VectorTest memory) {
+    function rs256_35() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 2048
             e: hex"00000000000000000000000000000000000000000000000000000000003c7bf9",
@@ -465,7 +465,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_36() public view returns (VectorTest memory) {
+    function rs256_36() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 3072
             e: hex"0000000000000000000000000000000000000000000000000000000000ac6db1",
@@ -476,7 +476,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_37() public view returns (VectorTest memory) {
+    function rs256_37() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 3072
             e: hex"00000000000000000000000000000000000000000000000000000000001ed02d",
@@ -487,7 +487,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_38() public view returns (VectorTest memory) {
+    function rs256_38() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 3072
             e: hex"0000000000000000000000000000000000000000000000000000000000ac6db1",
@@ -498,7 +498,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_39() public view returns (VectorTest memory) {
+    function rs256_39() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 3072
             e: hex"0000000000000000000000000000000000000000000000000000000000ac6db1",
@@ -509,7 +509,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_40() public view returns (VectorTest memory) {
+    function rs256_40() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 3072
             e: hex"0000000000000000000000000000000000000000000000000000000000ac6db1",
@@ -520,7 +520,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_41() public view returns (VectorTest memory) {
+    function rs256_41() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 3072
             e: hex"0000000000000000000000000000000000000000000000000000000000ac6db1",
@@ -531,7 +531,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_42() public view returns (VectorTest memory) {
+    function rs256_42() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 3072
             e: hex"000000000000000000000000000000000000000000000000000000000074ef0b",
@@ -542,7 +542,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_43() public view returns (VectorTest memory) {
+    function rs256_43() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 3072
             e: hex"000000000000000000000000000000000000000000000000000000000074ef0b",
@@ -553,7 +553,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_44() public view returns (VectorTest memory) {
+    function rs256_44() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 3072
             e: hex"0000000000000000000000000000000000000000000000000000000000f1d0f1",
@@ -564,7 +564,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_45() public view returns (VectorTest memory) {
+    function rs256_45() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 3072
             e: hex"000000000000000000000000000000000000000000000000000000000074ef0b",
@@ -575,7 +575,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_46() public view returns (VectorTest memory) {
+    function rs256_46() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 3072
             e: hex"000000000000000000000000000000000000000000000000000000000074ef0b",
@@ -586,7 +586,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_47() public view returns (VectorTest memory) {
+    function rs256_47() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 3072
             e: hex"000000000000000000000000000000000000000000000000000000000074ef0b",
@@ -597,7 +597,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_48() public view returns (VectorTest memory) {
+    function rs256_48() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 3072
             e: hex"0000000000000000000000000000000000000000000000000000000000e5a4b3",
@@ -608,7 +608,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_49() public view returns (VectorTest memory) {
+    function rs256_49() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 3072
             e: hex"0000000000000000000000000000000000000000000000000000000000e5a4b3",
@@ -619,7 +619,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_50() public view returns (VectorTest memory) {
+    function rs256_50() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 3072
             e: hex"0000000000000000000000000000000000000000000000000000000000c15efd",
@@ -630,7 +630,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_51() public view returns (VectorTest memory) {
+    function rs256_51() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 3072
             e: hex"0000000000000000000000000000000000000000000000000000000000e5a4b3",
@@ -641,7 +641,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_52() public view returns (VectorTest memory) {
+    function rs256_52() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 3072
             e: hex"0000000000000000000000000000000000000000000000000000000000e5a4b3",
@@ -652,7 +652,7 @@ contract FIPS186_4 is Suite {
         });
     }
 
-    function rs256_53() public view returns (VectorTest memory) {
+    function rs256_53() public pure returns (VectorTest memory) {
         return VectorTest({
             // mod = 3072
             e: hex"0000000000000000000000000000000000000000000000000000000000e5a4b3",

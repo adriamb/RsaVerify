@@ -13,14 +13,14 @@ pragma solidity ^0.8.13;
 import "./Suite.sol";
 
 contract RFC8017 is Suite {
-    function suite() public returns (VectorTest[] memory) {
+    function suite() public pure returns (VectorTest[] memory) {
         VectorTest[] memory vt = new VectorTest[](1);
         uint256 i = 0;
         vt[i++] = test_rfc8017_implicit_null_parameter();
         return vt;
     }
 
-    function test_rfc8017_implicit_null_parameter() internal returns (VectorTest memory) {
+    function test_rfc8017_implicit_null_parameter() internal pure returns (VectorTest memory) {
         return VectorTest({
             n: hex"E932AC92252F585B3A80A4DD76A897C8B7652952FE788F6EC8DD640587A1EE56"
                 hex"47670A8AD4C2BE0F9FA6E49C605ADF77B5174230AF7BD50E5D6D6D6D28CCF0A8"

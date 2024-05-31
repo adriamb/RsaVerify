@@ -41,14 +41,14 @@ import "./Suite.sol";
 */
 
 contract OpenSSL is Suite {
-    function suite() public returns (VectorTest[] memory) {
+    function suite() public pure returns (VectorTest[] memory) {
         VectorTest[] memory vt = new VectorTest[](1);
         uint256 i = 0;
         vt[i++] = ok();
         return vt;
     }
 
-    function ok() internal returns (VectorTest memory) {
+    function ok() internal pure returns (VectorTest memory) {
         return VectorTest({
             e: hex"0000000000000000000000000000000000000000000000000000000000000000"
                 hex"0000000000000000000000000000000000000000000000000000000000000000"

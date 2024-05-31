@@ -14,7 +14,7 @@ contract FIPS186_2 is Suite {
         hex"ede679f50b3de32cf4026e514542495c54b1903768791aae9e36f082cd38e941"
         hex"ada89baecada61ab0dd37ad536bcb0a0946271594836e92ab5517301d45176b5";
 
-    function suite() public returns (VectorTest[] memory) {
+    function suite() public view returns (VectorTest[] memory) {
         VectorTest[] memory vt = new VectorTest[](7);
         uint256 i = 0;
         vt[i++] = ok();
@@ -27,7 +27,7 @@ contract FIPS186_2 is Suite {
         return vt;
     }
 
-    function ok() internal returns (VectorTest memory) {
+    function ok() view internal returns (VectorTest memory) {
         return VectorTest({
             e: hex"0000000000000000000000000000000000000000000000000000000000000000"
                 hex"0000000000000000000000000000000000000000000000000000000000000000"
