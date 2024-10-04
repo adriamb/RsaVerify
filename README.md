@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> Since 2024/6/11 [OpenZeppelin supports PKCS#1 Verification](https://github.com/OpenZeppelin/openzeppelin-contracts/pull/4952), consider to use this well-audited library
+
 # SolRsaVerify
 
 [![test](https://github.com/adria0/SolRsaVerify/actions/workflows/test.yml/badge.svg)](https://github.com/adria0/SolRsaVerify/actions/workflows/test.yml) [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
